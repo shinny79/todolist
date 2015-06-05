@@ -43,7 +43,7 @@ var ajax = function(){
 		return true;
 	};
 	return the = {
-	 	request : function(r){
+	 	request : function(){
 			var url = arguments[0].url || null;  
 			var dataType = arguments[0].dataType || 'text'; 
 			var type = arguments[0].type || 'post'; 
