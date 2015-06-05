@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+
+function ajaxRequst(method,url,data){
+	var xmlhttp;
+	console.log(window.XMLHttpRequest);
+	if (window.XMLHttpRequest)
+	{
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else
+	{
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange=function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			console.log(xmlhttp.responseText);
+		}
+	}
+	xmlhttp.open(method,url,false);
+	xmlhttp.send(data);
+}
+ajaxRequst("GET","restAPI.php?userId=1",null);
+var data = '{"assign": [{"context": "131","isImportant": 1},{"context": "121","isImportant": 1}]}';
+ajaxRequst('POST',"restAPI.php",data);
+</script>
+</html>
