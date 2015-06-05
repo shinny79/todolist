@@ -1,3 +1,4 @@
+
 var XMLHttpReq;  
 function createXMLHttpRequest() {  
     try {  
@@ -13,38 +14,48 @@ function createXMLHttpRequest() {
     }  
   
 }  
-function sendAjaxRequest() {
-	url = arguments['url'] || null;  
-	dataType = arguments['dataType'] || 'text'; 
-	type = arguments['type'] || 'post'; 
-	if(url) return null;
-    createXMLHttpRequest();                                //创建XMLHttpRequest对象  
-    XMLHttpReq.open("post", url, true);  
-    XMLHttpReq.onreadystatechange = processResponse; //指定响应函数  
-    XMLHttpReq.send(null);  
-}  
-//回调函数  
-function processResponse() {  
-    if (XMLHttpReq.readyState == 4) {  
-        if (XMLHttpReq.status == 200) {  
-            var text = XMLHttpReq.responseText;  
-  
-            /** 
-             *实现回调 
-             */  
-            text = window.decodeURI(text);  
-            var cp = document.getElementById("cp");  
-            cp.innerHTML = "";  
-            var values = text.split("|");  
-            for (var i = 0; i < values.length; i++) {  
-                var temp = document.createElement("option");  
-                temp.text = values[i];  
-                temp.value = values[i];  
-                cp.options.add(temp);  
-            }  
-  
-  
-        }  
-    }  
-  
+function sendAjaxRequest() {		
+    createXMLHttpRequest(); //创建XMLHttpRequest对象  
+	url = arguments[0].url || null;  
+	dataType = arguments[0].dataType || 'text'; 
+	type = arguments[0].type || 'post'; 
+	async = arguments[0].async || true;
+	callBack = arguments[0].callBack || null;
+	data = arguments[0].data || null;
+	if(!url) return null;
+	if(data){
+		if(type.toLowerCase() === 'get'){
+			url += url.indexOf('?') == -1 ? '?' : '';
+			if(typeof data != 'object'){
+				try{
+					data =JSON.parse(data);
+				}catch(e){
+					data = eval("("+data+")");
+				}
+			}
+			for(var o in data){
+				url += '&' + o + "=" + data[o];
+			}
+			sendData = null;
+			XMLHttpReq.open(type, url, async); 
+
+		}else{
+    		XMLHttpReq.open(type, url, async); 
+			XMLHttpReq.setRequestHeader("Content-type","application/raw"); 
+			var sendData = data;
+		}
+	}else{
+		sendData = null;
+	}       
+	XMLHttpReq.send(sendData);         
+    XMLHttpReq.onreadystatechange = function(){				//指定响应函数 
+    	if (XMLHttpReq.readyState == 4) {  
+	        if (XMLHttpReq.status == 200) {  
+	            var res = XMLHttpReq.responseText;
+	 			if(callBack){
+	 				callBack(res);
+	 			}
+	        }  
+    	} 
+    };
 }  
