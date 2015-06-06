@@ -1,7 +1,6 @@
 <?php
 // header('content')
-$method = $_SERVER['REQUEST_METHOD'];
-var_dump($method);
+
 try{
 	$config = parse_ini_file('config.ini');
 	$conn = new mysqli($config['host'],$config['username'],$config['password'],$config['name']);
@@ -12,25 +11,33 @@ try{
 	$conn->multi_query('set names utf8');
 
 	// get all
-	// if(isset($_GET['category'])){
-	// 	$sql = 'SELECT * FROM Assign WHERE category = $_GET["category"]';
-	// 	$result = $conn->query($sql);
-	// 	$assignArr = array();
-	// 	if ($result->num_rows > 0) {
-	// 	    while($row = $result->fetch_object()) {
-	// 	        array_push($assignArr, $row);
+	if(isset($_GET['category'])){
+		$str = ($_GET['category']=='all')?(1):('category = "'.$_GET["category"].'"');
+		$sql = 'SELECT * FROM Assign WHERE '.$str;
+		$result = $conn->query($sql);
+		if(!$result||!$result->num_rows){
+			$data = array(
+				'errorCode' => 200,
+				'errorMessage' => 'not find!');
+			echo json_encode($data);
+			exit();
+		}
+		$assignArr = array();
+		if ($result->num_rows > 0) {
+		    while($row = $result->fetch_object()) {
+		        array_push($assignArr, $row);
 
-	// 	    }
-	// 	}
-	// 	$data = array(
-	// 		'errorCode' => 200,
-	// 		'errorMessage' => 'get all!',
-	// 		'data'=>$assignArr);
-	// 	echo json_encode($data);
-	// }
+		    }
+		}
+		$data = array(
+			'errorCode' => 200,
+			'errorMessage' => 'get all!',
+			'data'=>$assignArr);
+		echo json_encode($data);
+	}
 
 
-	// post some
+	// insert some
 	if(file_get_contents("php://input")&&$_SERVER['REQUEST_METHOD'] == 'POST'){
 		$raw = json_decode(file_get_contents("php://input"));
 
@@ -42,7 +49,9 @@ try{
 			$isimportant = (isset($assTemp->isImportant))?($assTemp->isImportant):(0);
 			$isdone = (isset($assTemp->isdone))?($assTemp->isdone):(0);
 			$endTime = (isset($assTemp->endTime))?($assTemp->endTime):(0);
-			$stmt->bind_param("siis",$assTemp->context,$isdone,$isimportant,$endTime);
+			$context = $assTemp->context;
+			// $context = ($assTemp->context);
+			$stmt->bind_param("siis",$context,$isdone,$isimportant,$endTime);
 			$stmt->execute();
 		}
 
@@ -88,25 +97,30 @@ try{
 	}	
 
 	//search some
-	var_dump("expression");
-	// if(isset($_GET['keyword'])){
-	// 	var_dump("expression");
-	// 	$sql = "SELECT * FROM Assign WHERE content = %$_GET['key']%";
-	// 	$result = $conn->query($sql);
-	// 	var_dump("expression");
-	// 	$assignArr = array();
-	// 	if ($result->num_rows > 0) {
-	// 	    while($row = $result->fetch_object()) {
-	// 	        array_push($assignArr, $row);
+	if(isset($_GET['keyword'])){
+		$str = ($_GET['keyword']);
+		$sql = 'SELECT * FROM Assign WHERE content LIKE "%'.$str.'%"';
+		$result = $conn->query($sql);
+		if(!$result||!$result->num_rows){
+			$data = array(
+				'errorCode' => 200,
+				'errorMessage' => 'can not find!');
+			echo json_encode($data);
+			exit();
+		}
+		$assignArr = array();
+		if ($result->num_rows > 0) {
+		    while($row = $result->fetch_object()) {
+		        array_push($assignArr, $row);
 
-	// 	    }
-	// 	}
-	// 	$data = array(
-	// 		'errorCode' => 200,
-	// 		'errorMessage' => 'get all!',
-	// 		'data'=>$assignArr);
-	// 	echo json_encode($data);
-	// }
+		    }
+		}
+		$data = array(
+			'errorCode' => 200,
+			'errorMessage' => 'get all!',
+			'data'=>$assignArr);
+		echo json_encode($data);
+	}
 
 }catch(Exception $e){
 	echo $e->getMessage();
