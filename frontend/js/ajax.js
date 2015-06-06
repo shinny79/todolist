@@ -7,6 +7,7 @@
 * @param data 可选，发送给服务器的数据，json类型
 * @param async 可选，同步，默认同步执行（true）
 * @param callback 可选，function回调函数
+* @param dataType 可选,预期返回的数据类型，默认为text
 */ 
 var ajax = function(){
 	var XMLHttpReq = function () {  
@@ -28,7 +29,7 @@ var ajax = function(){
 		if(!data) return {};	
 		if(typeof data != 'object'){
 			try{
-				data =JSON.parse(data);
+				data = JSON.parse(data);
 			}catch(e){
 				data = eval("("+data+")");
 			}
@@ -79,8 +80,18 @@ var ajax = function(){
 			XMLHttpReq.send(sendData);         
 		    XMLHttpReq.onreadystatechange = function(){				//指定响应函数 
 		    	if (XMLHttpReq.readyState == 4) {  
-			        if (XMLHttpReq.status == 200) {  
-			            var res = XMLHttpReq.responseText;
+			        if (XMLHttpReq.status == 200) { 
+			        	switch(dataType.toLowerCase()){
+			        		case 'json' :
+			        			var res = XMLHttpReq.responseText;
+			        			res = JSON.parse(res);
+			        			break;
+			        		case 'xml' :
+			        			var res = XMLHttpReq.responseXML;	
+			        			break;
+			        		default :
+			        			var res = XMLHttpReq.responseText;
+			        	}
 			 			if(callback){
 			 				callback(res);
 			 			}
