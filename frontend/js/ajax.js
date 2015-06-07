@@ -10,7 +10,9 @@
 * @param dataType 可选,预期返回的数据类型，默认为text
 */ 
 var ajax = function(){
-	var XMLHttpReq = function () {  
+
+	//获取XMLHttpRequest对象
+	var getXMLHttpReq = function () {  
 		var xhr = null;
 	    try {  
 	        xhr = new ActiveXObject("Msxml2.XMLHTTP");//IE高版本创建XMLHTTP  
@@ -24,7 +26,10 @@ var ajax = function(){
 	        }  
 	    }  
 	  return xhr;
-	}();
+	};
+
+	//格式化用户输入数据参数，防止不合法参数，返回json对象
+	//TODO 试图格式化数据时使用eval，可能运行不合法的脚本，造成安全问题
 	var parseData = function(data){
 		if(!data) return {};	
 		if(typeof data != 'object'){
@@ -36,6 +41,8 @@ var ajax = function(){
 		}
 		return data;
 	};
+
+	//判断空对象
 	var isEmptyObject = function( obj ) {
 		var name;
 		for ( name in obj ) {
@@ -44,6 +51,8 @@ var ajax = function(){
 		return true;
 	};
 	return the = {
+
+		//ajax查询方法
 	 	request : function(){
 			var url = arguments[0].url || null;  
 			var dataType = arguments[0].dataType || 'text'; 
@@ -51,8 +60,9 @@ var ajax = function(){
 			var async = arguments[0].async || true;
 			var callback = arguments[0].callback || null;
 			var data = arguments[0].data || null;
-
+			
 			if(!url) return null;
+			var XMLHttpReq = getXMLHttpReq();
 			data = parseData(data);
 			if(type.toLowerCase() === 'get'){
 				if(!isEmptyObject(data)){					
