@@ -20,39 +20,200 @@
  		</div>
  		<div class="nav">
  			<ul>
- 				<li id="person"><a href=""><span class="color1"></span>个人</a></li>
- 				<li id="work"><a href=""><span class="color2"></span>工作</a></li>
- 				<li id="otherthing"><a href=""><span class="color3"></span>杂项</a></li>
- 				<li id="shopping"><a href=""><span class="color4"></span>购物</a></li>
- 				<li id="all"><a href=""><span class="color5"></span>所有</a></li>
+ 				<li id="person" class="navactive">
+ 					<a href="">
+ 						<span class="color1"></span>个人
+ 					</a>
+ 				</li>
+ 				<li id="work">
+ 					<a href="">
+ 						<span class="color2"></span>工作
+ 					</a>
+ 				</li>
+ 				<li id="otherthing">
+ 					<a href="">
+ 						<span class="color3"></span>杂项
+ 					</a>
+ 				</li>
+ 				<li id="shopping">
+ 					<a href="">
+ 						<span class="color4"></span>购物
+ 					</a>
+ 				</li>
+ 				<li id="all">
+ 					<a href="">
+ 						<span class="color5"></span>所有
+ 					</a>
+ 				</li>
  			</ul>
  		</div>
  	</div>
  	<div class="right">
  		<div class="topnav clearfix">
 			<div class="searchbox">
-				<div class="icon" id="icon1"><span class="search"></span></div>
+				<div class="icon" id="icon1">
+					<span class="search"></span>
+				</div>
 				<input type="search" placeholder='输入关键字查询'/>
 			</div>
 			<div class="topnavright">
-				<div class="icon" id="icon2"><span class="belltop"></span><span class="bellbottom"></span><span id="bub">2</span></div>
-				<div class="user-sm"><a href="javascript:;"><img src="img/user.png" ><span class='name'>John Smith</span><span class='cert'></span></a></div>
+				<div class="icon" id="icon2">
+					<span class="belltop"></span>
+					<span class="bellbottom"></span>
+					<span id="bub">2</span>
+				</div>
+				<div class="user-sm">
+					<a href="javascript:;">
+						<img src="img/user.png" >
+						<span class='name'>John Smith</span>
+						<span class='cert'></span>
+					</a>
+				</div>
 			</div>
  		</div>
  		<div class="middle">
- 		<div class="add">
-			<form action="">
-				<input type="text" placeholder='添加' class="addinput"/>
-			</form>
+ 			<div class="add">
+				<form action="">
+					<input type="text" placeholder='添加' class="addinput" id="byh-input-add-task"/>
+					<a>
+						<div class="icon" id="icon3">
+							<span class="plus"></span>
+						</div>
+					</a>
+				</form>
+ 			</div>
+	 		<div class="date">
+	 			<div class="bigdate">
+	 				<p id="byh-weekday">Monday</p>
+	 				<p>
+	 					<b id="byh-day">10</b>
+	 						<span id="byh-month">Feb</span>
+	 				</p>
+	 			</div>
+	 			<div class="smalldate">
+	 				<p id="byh-apm">PM</p>
+	 					<p id="byh-time">11:00</p>
+	 			</div>
+	 		</div>
+	 		<div class="weather">
+	 			<p class="city">北京</p>
+	 			<div class="temperature">
+	 				<img src="img/白天多云.png" alt="" id="byh-weatherimg">
+	 					<b class="number">28</b>
+	 						<span class="Temcir"></span>
+	 			</div>
+	 		</div>
  		</div>
- 		<div class="date"></div>
- 		<div class="weather"></div>
- 		</div>
- 		<div class="container">
- 			<div class="mainheader"></div>
- 			<div class="todo"></div>
+ 		<!--右侧面板-->
+           <div id="panel">
+            	<div class="rela">
+            	<div id="panel_title">个人</div>
+                <div class="panelcontainer">
+                <!--条目-->
+                <div class="item checked">
+                	<div class="note"><b>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div>
+                
+                <div class="item checked">
+                <div class="note"><b>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div>
+                <div class="item">
+                <div class="note "><b>哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div>
+                <div class="item">
+                 <div class="note"><b>哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div><div class="item">
+                 <div class="note "><b>哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div><div class="item">
+                 <div class="note "><b>哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star staractive"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div>
+                <div class="item">
+                 <div class="note "><b>哈哈哈哈哈</b><span id="itemdate">6月5日 19:00</span></div>
+                	<div class="checks"></div>
+                    <div class="incheck"></div>
+                    <div class="icons">
+						<div class="star"></div>
+                        <div class="dustbin"></div>
+                        <div class="pencil"></div>
+					</div>
+                </div>
+                </div>
+                </div>
+            </div>
+ 	<div class="mask">
+ 		<div class="dialog">
+		 	<form action="">
+		 		<a href="" class="closedialog"></a>
+		 		<ul id="">
+		 			<li id="dialogperson" class="dialog1">
+		 				<a id="byh-add-personal" class="byh-add">
+		 					<span></span>个人
+		 				</a>
+		 			</li>
+		 			<li id="dialogwork" class="dialog2 ">
+		 				<a id="byh-add-work" class="byh-add">
+		 					<span></span>工作
+		 				</a>
+		 			</li>
+		 			<li id="dialogotherthing" class="dialog3">
+		 				<a id="byh-add-others" class="byh-add">
+		 					<span></span>杂项
+		 				</a>
+		 			</li>
+		 			<li id="dialogshopping" class="dialog4">
+		 				<a id="byh-add-shopping" class="byh-add">
+		 					<span></span>购物
+		 				</a>
+		 			</li>
+		 		</ul>
+		 		<input type="datetime-local" name="user_date" class="datetimechoose" id="byh-datetime"/><span id="byh-input-notice"></span>
+		 		<button type="button" class="dialogbtn" id="byh-submittask">确定</button>
+		 	</form>
  		</div>
  	</div>
  </div> 
 </body>
 </html>
+<script src="js/byh.js"></script>

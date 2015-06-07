@@ -1,11 +1,12 @@
+
 @charset "UTF-8";
-body{
-	background-color: #23233a;
-	font-family:"Hiragino Sans GB", "Microsoft YaHei",
-             "WenQuanYi Micro Hei", sans-serif;
-    box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+
+body {
+	background-color: #1fb5ac;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
-.main{
+/*主体面板的样式*/
+.main {
 	min-width: 1024px;
 	width: 80%;
 	height: 650px;
@@ -16,205 +17,222 @@ body{
 	margin-top: -325px;
 	left: 50%;
 	margin-left: -40%;
+	box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.56);
 }
-.left{
+/*主体面板侧面的样式*/
+.left {
 	width: 25%;
 	height: 650px;
-	background-color:#1fb5ac; 
+	background-color: #1fb5ac;
 	float: left;
 }
-.user{
+/*侧边栏上方user样式*/
+.user {
 	color: #fff;
-    height: 250px;
-    position: relative;
-    top: 0;
-    left: 0;
-    text-align: center;
+	height: 250px;
+	position: relative;
+	top: 0;
+	left: 0;
+	text-align: center;
 }
-#logo{
-	padding:20px;
+#logo {
+	padding: 20px;
 	font-size: 1.5em;
 }
-.user p{
-	padding:5px;
+.user p {
+	padding: 5px;
 }
-.user img{
+.user img {
 	width: 100px;
 	height: 100px;
 	border-radius: 55px;
 	border: 5px solid #fff;
-	margin:10px 0;
+	margin: 10px 0;
 }
-.nav{
+/*侧边面板下方的nav样式*/
+.nav {
 	height: 330px;
 	width: 80%;
-	margin:20px auto;
+	margin: 20px auto;
 	padding-top: 20px;
 	background-color: #fff;
 }
-.nav li{
+.nav li {
 	display: block;
 	width: 120px;
-	padding:0 20px;
+	padding: 0 20px;
 	height: 40px;
-	margin:0px auto;
+	margin: 5px auto;
 	line-height: 55px;
 	border-radius: 5px;
 }
-.nav li a{
+.nav li a {
 	color: #1fb5ac;
 }
-.nav li:hover{
+.nav li:hover {
 	line-height: 40px;
 	background-color: #1fb5ac;
 }
-.nav li:hover a{
+.nav li:hover a {
 	color: #fff;
 }
-.nav li span{
+/*侧边栏选中后的右侧栏状态*/
+.nav .navactive{
+	line-height: 40px;
+	background-color: #1fb5ac;
+}
+.nav .navactive a{
+	color: #fff;
+}
+/*选中框的样式设置*/
+.nav li span {
 	width: 20px;
 	height: 20px;
 	border-radius: 5px;
 	display: inline-block;
-	margin:0 20px 0 0;
+	margin: 0 20px 0 0;
 }
-.color1{
+/*选中框的颜色*/
+.color1 {
 	background-color: #d74f41;
 }
-.color2{
+.color2 {
 	background-color: #f39800;
 }
-.color3{
+.color3 {
 	background-color: #00b8ee;
 }
-.color4{
+.color4 {
 	background-color: #aa8abc;
 }
-.color5{
+.color5 {
 	background-color: #f29c9f;
 }
-.right{
+/*右边面板的开始*/
+.right {
 	width: 75%;
 	height: 650px;
 	float: left;
 }
-.topnav{
+/*右边面板的头部*/
+.topnav {
 	width: 100%;
 	height: 50px;
 	background-color: #fff;
 	position: relative;
 }
+/*上部icon的外包*/
 .icon {
-    height: 32px;
-    width: 32px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
+	height: 32px;
+	width: 32px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
 }
-#icon1{
-	margin:12px;
+#icon1 {
+	margin: 12px;
 }
+/*图形search*/
 .icon .search {
-    height: 10px;
-    width: 10px;
-    background: transparent;
-    border-radius: 44px;
-    -moz-border-radius: 44px;
-    -webkit-border-radius: 44px;
-    border: 4px solid #666;
-    display: inline-block;
+	height: 10px;
+	width: 10px;
+	background: transparent;
+	border-radius: 44px;
+	-moz-border-radius: 44px;
+	-webkit-border-radius: 44px;
+	border: 4px solid #959595;
+	display: inline-block;
 }
-
 .icon .search:after {
-    content: '';
-    width: 4px;
-    height: 12px;
-    background: #666;
-    position: absolute;
-    bottom: 7px;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    right: 11px;
+	content: '';
+	width: 4px;
+	height: 12px;
+	background: #959595;
+	position: absolute;
+	bottom: 7px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	right: 11px;
 }
-.searchbox{
+/*搜索框*/
+.searchbox {
 	float: left;
 	width: 300px;
 }
-.searchbox input{
-	width: 150px;
+.searchbox input {
+	width: 200px;
 	height: 50px;
 	display: inline-block;
 	position: absolute;
-	top:0;
+	top: 0;
 	border: none;
-	font-size: 16px;
+	font-size: 14px;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+/*图形铃铛*/
 .icon .belltop {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    border: 2px solid #666;
-    -webkit-border-radius:40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    left:10px;
-}
-
-.icon .belltop:after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    width: 15px;
-    height: 12px;
-    background: #666;
-    left: -6px;
-    -webkit-border-radius: 40px 40px 0 0;
-    -moz-border-radius: 40px 40px 0 0;
-    border-radius: 40px 40px 0 0;
-}
-
-.icon .belltop:before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 12px;
-    width: 15px;
-    height: 0;
-    border-style: solid;
-    border-color: transparent transparent #666 transparent;
-    border-width: 0 4px 9px;
-}
-
-.icon .bellbottom {
-    position: absolute;
-    bottom: 7px;
-    left: 2px;
-    width: 23px;
-    height: 2px;
-    background: #666;
-}
-
-.icon .bellbottom:after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 3px;
-    background: #666;
-    -webkit-border-radius: 0 0 50px 50px;
-    -moz-border-radius: 0 0 50px 50px;
-    border-radius: 0 0 50px 50px;
-    top: 3px;
-    left: 8px;
-}
-#icon2{
-	margin:10px 20px 10px 10px;
-}
-#bub{
 	position: absolute;
+	width: 2px;
+	height: 2px;
+	border: 2px solid #959595;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
 	left: 10px;
+}
+.icon .belltop:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	width: 13px;
+	height: 12px;
+	background: #959595;
+	left: -6px;
+	-webkit-border-radius: 30px 30px 0 0;
+	-moz-border-radius: 30px 30px 0 0;
+	border-radius: 30px 30px 0 0;
+}
+.icon .belltop:before {
+	content: '';
+	position: absolute;
+	left: -10px;
+	top: 11px;
+	width: 13px;
+	height: 0;
+	border-style: solid;
+	border-color: transparent transparent #959595 transparent;
+	border-width: 0 4px 9px;
+}
+.icon .bellbottom {
+	position: absolute;
+	bottom: 8px;
+	left: 2px;
+	width: 21px;
+	height: 2px;
+	background: #959595;
+}
+.icon .bellbottom:after {
+	content: '';
+	position: absolute;
+	width: 6px;
+	height: 3px;
+	background: #959595;
+	-webkit-border-radius: 0 0 50px 50px;
+	-moz-border-radius: 0 0 50px 50px;
+	border-radius: 0 0 50px 50px;
+	top: 3px;
+	left: 7px;
+}
+#icon2 {
+	margin: 10px 20px 10px 10px;
+}
+/*显示没有做的数目*/
+#bub {
+	position: absolute;
+	left: 12px;
 	z-index: 20;
 	display: block;
 	width: 20px;
@@ -225,57 +243,652 @@ body{
 	text-align: center;
 	line-height: 15px;
 	font-size: 12px;
-	visibility:hidden;
+	visibility: hidden;
 }
-.topnavright{
+/*小用户标识*/
+.topnavright {
 	float: right;
 	width: 260px;
 }
-.user-sm{
+.user-sm {
 	display: inline-block;
-	border-left: 1px solid #666;
-	padding:0 10px;
+	border-left: 1px solid #959595;
+	padding: 0 10px;
 	position: relative;
+	top: -2px;
 	height: 50px;
 	line-height: 50px;
 }
-.user-sm img{
+.user-sm img {
 	width: 30px;
 	height: 30px;
 	border-radius: 15px;
 	margin: 10px 10px 10px 10px;
 }
-.name{
+.name {
 	display: inline-block;
 	vertical-align: middle;
 	overflow: hidden;
-	width: 150px;
-	position:absolute;
-	color:#666;
+	width: 100px;
+	position: absolute;
+	top:0px;
+	left:60px;
+	color: #959595;
 }
-.cert{
+/*三角*/
+.cert {
 	width: 0;
 	height: 0;
-	display:inline-block;
+	display: inline-block;
 	border-style: solid;
-	border-width: 10px 10px 0 10px;
-	border-color: #666 transparent transparent  transparent;  
+	border-width: 7px 7px 0 7px;
+	border-color: #959595 transparent transparent  transparent;
 	position: absolute;
-	right:-110px;
-	top:20px;
+	right: -110px;
+	top: 20px;
 }
-.middle{
-	width: 700px;
-	margin:25px auto 25px auto;
+/*右侧中间部分*/
+.middle {
+	width: 750px;
+	height: 70px;
+	margin: 25px auto 25px auto;
 }
-.middle form{
+/*添加事件样式*/
+.add {
 	width: 300px;
-	margin-top:40px;
+	height: 40px;
+	float: left;
+	margin-top: 35px;
 }
-.addinput{
-	width:200px;
+/*添加事件按钮*/
+.middle form a {
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+	position: absolute;
+	margin-left: 10px;
+	background-color: #d74f41;
+}
+.middle form input {
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	width: 200px;
+}
+/*添加事件按钮的图标*/
+#icon3 {
+	margin: 3px;
+}
+.icon .plus {
+	width: 22px;
+	height: 2px;
+	background: #fff;
+	position: absolute;
+	left: 4px;
+	top: 14px;
+}
+.icon .plus:after {
+	content: '';
+	position: absolute;
+	width: 2px;
+	height: 22px;
+	background: #fff;
+	left: 10px;
+	top: -10px;
+}
+.addinput {
+	width: 200px;
 	height: 30px;
 	border-radius: 5px;
-	border: 2px solid #666;
+	border: 2px solid #959595;
 	text-indent: 20px;
 }
+/*点击add后显示的*/
+.mask {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 99;
+	visibility: hidden;
+}
+.dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 250px;
+	text-align: center;
+	margin-left: -250px;
+	margin-top: -125px;
+	background-color: #fff;
+	z-index: 100;
+	font-size: 20px;
+	font-weight: bold;
+	box-shadow: 0 0 20px 3px #666;	
+}
+.dialog li span {
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	border-width: 3px;
+	border-style: solid;
+	display: inline-block;
+	margin: 0 20px 0 0;
+	position: relative;
+	overflow: hidden;
+}
+.dialog li {
+	display: inline-block;
+	padding-top: 50px;
+	width: 100px;
+	height: 50px;
+}
+.dialog li a {
+	color: #1fb5ac;
+	font-weight: normal;
+	margin-top: 10px;
+}
+.dialog li span {
+	margin: 0 10px -5px 0;
+}
+.dialog1 span {
+	border-color: #d74f41;
+}
+.dialog2 span {
+	border-color: #f39800;
+}
+.dialog3 span {
+	border-color: #00b8ee;
+}
+.dialog4 span {
+	border-color: #aa8abc;
+}
+.datetimechoose {
+	margin-right: 200px;
+	height: 30px;
+	width: 200px;
+	border: 2px solid #959595;
+	border-radius: 5px;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	text-indent: 10px;
+}
+.dialogbtn {
+	width: 100px;
+	height: 40px;
+	display: block;
+	margin-left: 350px;
+	border: none;
+	color: #fff;
+	background-color: #1fb5ac;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	font-size: 17px;
+}
+.dialogbtn:hover {
+	background-color: #1A958E;
+	font-size: 20px;
+}
+/*点击按钮的样式*/
+.dialog1 .checked {
+	background-color: #d74f41;
+}
+.dialog2 .checked {
+	background-color: #f39800;
+}
+.dialog3 .checked {
+	background-color: #00b8ee;
+}
+.dialog4 .checked {
+	background-color: #aa8abc;
+}
+/*点击的勾*/
+.dialog .checked:before {
+	content: "";
+	width: 15px;
+	height: 4px;
+	background: #fff;
+	position: absolute;
+	left: -1px;
+	top: -4px;
+	margin: 13px 0 0 6px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.dialog .checked:after {
+	content: '';
+	width: 8px;
+	height: 4px;
+	background-color: #fff;
+	position: absolute;
+	top: 11px;
+	left: 3px;
+	-webkit-transform: rotate(50deg);
+	-moz-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	-o-transform: rotate(50deg);
+	transform: rotate(50deg);
+}
+/*关闭按钮*/
+.closedialog {
+	display: block;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	left: 450px;
+	top: 20px;
+}
+.closedialog:before {
+	content: "";
+	width: 25px;
+	height: 4px;
+	background-color: #959595;
+	position: absolute;
+	right: 2px;
+	margin: 13px 0 0 6px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.closedialog:after {
+	content: '';
+	width: 25px;
+	height: 4px;
+	background-color: #959595;
+	position: absolute;
+	right: 2px;
+	top: 13px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.closedialog:hover:before {
+	background-color: #1fb5ac;
+}
+.closedialog:hover:after {
+	background-color: #1fb5ac;
+}
+/*显示天气样式*/
+.weather {
+	width: 150px;
+	height: 70px;
+	background-color: #fff;
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	background: url(../img/bluesky.png) no-repeat center;
+}
+.city {
+	font-size: 10px;
+	text-indent: 5px;
+	padding: 5px;
+	color: #fff;
+}
+.temperature img {
+	margin: 10px 10px 0 10px;
+}
+.number {
+	color: #fff;
+	font-size: 40px;
+	position: relative;
+	top: -10px;
+	left: 10px;
+	font-weight: normal;
+}
+.Temcir {
+	height: 6px;
+	width: 6px;
+	display: inline-block;
+	position: relative;
+	top: -40px;
+	left: 10px;
+	border-radius: 5px;
+	border: 2px solid #fff;
+}
+/*显示时间*/
+.date {
+	float: right;
+	display: inline-block;
+	background-color: #fff;
+	width: 220px;
+	height: 70px;
+}
+/*月份*/
+.bigdate {
+	height: 100%;
+	width: 80px;
+	display: inline-block;
+	background-color: #1fb5ac;
+	color: #fff;
+	text-align: center;
+}
+.bigdate p {
+	padding-top: 10px;
+}
+.bigdate b {
+	font-size: 30px;
+}
+/*时间*/
+.smalldate {
+	height: 100%;
+	width: 130px;
+	display: inline-block;
+	color: #1fb5ac;
+	text-align: center;
+}
+.smalldate p:first-child {
+	padding-left: 70px;
+}
+.smalldate p:last-child {
+	font-size: 40px;
+}
+/*右侧主面板的样式*/
+#panel{
+	width:750px;
+	height:450px;
+	margin: 0 auto;
+	background-color:#FFFFFF;
+	box-shadow:-0.3px -0.3px 5px #8A8A8A;
+}
+/*为了规定其样式*/
+.rela{
+	position:relative;
+}
+.note{
+	color:#717171;
+	margin-left: 50px;
+}
+.note b{
+	font-weight: normal;
+	width:300px;
+	display: block;
+	padding: 20px;
+}
+#panel_title{
+	border-bottom-style:solid;
+	border-bottom-color:#DCDCDC;
+	border-bottom-width:2px;
+	position:absolute;
+	left:0;
+	right:0;
+	height:55px;
+	background-color:#F8F8F8;
+	color:#696969;
+	font-weight:bold;
+	line-height:55px;
+	padding-left:20px;
+	font-size:14px;
+}
+.panelcontainer{
+	position:absolute;
+	left:0;
+	right:0;
+	top:57px;
+	height: 370px;
+	overflow: auto;
+}
+.item{
+	margin-bottom:15px;
+	position:relative;
+	top:20px;
+	left:30px;
+	width:680px;
+	min-height:50px;
+	background-color:#F1F1F1;
+	border-radius:5px;
+}
+#itemdate{
+	color:#1FB5AC ;
+	position: absolute;
+	left: 400px;
+	top: 20px;
+	width: 200px;
+}
+.item:hover{
+	background-color:#1FB5AC;
+}
+
+.item:hover .note{
+	color:#ffffff;
+}
+
+.item:hover .checks{
+	background-color:#ffffff;
+}
+
+.item:hover .incheck{
+	background-color:#1FB5AC;
+}
+
+.item:hover .incheck{
+	background-color:#1FB5AC;
+}
+
+.item:hover .star,.item:hover .star:before, .item:hover .star:after{
+	 border-bottom-color:#ffffff;
+}
+
+
+.item:hover .dustbin, .item:hover .dustbin:after, .item:hover .dustbin:before{
+	 background:#ffffff;
+}
+
+.item:hover .pencil, .item:hover .pencil:after{
+	 background:#ffffff;
+}
+
+.item:hover .pencil:before{
+ 	border-color: #ffffff transparent transparent transparent;
+}
+
+.checks{
+	position:absolute;
+	width:24px;
+	height:24px;
+	top:20px;
+	left:20px;
+	background-color:#1FB5AD;
+	border-radius:3px;
+}
+
+.incheck{
+	position:absolute;
+	width:16px;
+	height:16px;
+	top:24px;
+	left:24px;
+	background-color:#F1F1F1;
+	border-radius:2px;
+}
+
+.star {
+    margin: 13px 0;
+    position: absolute;
+    display: block;
+	top:8px;
+	right:90px;
+    width: 0px;
+    height: 0px;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid #6E6E6E;
+    border-left: 10px solid transparent;
+    -moz-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+}
+div.icons div.star:before {
+    border-bottom: 8px solid #6E6E6E;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -5px;
+    left: -6px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+}
+
+div.icons div.star:after {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: -10px;
+    width: 0px;
+    height: 0px;
+    border-right: 10px solid transparent;
+    border-bottom:7px solid #6E6E6E;
+    border-left: 10px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
+    -ms-transform: rotate(-70deg);
+    -o-transform: rotate(-70deg);
+    content: '';
+}
+
+div.icons div.dustbin {
+    width: 10px;
+    height: 14px;
+    background: #6E6E6E;
+    position: absolute;
+	top:20px;
+    right:20px;
+    bottom: 3px;
+}
+
+div.icons div.dustbin:after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: #6E6E6E;
+    left: -2px;
+    top: -3px;
+}
+
+div.icons div.dustbin:before {
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    top: -4px;
+    content: '';
+    background: #6E6E6E;
+    left: 4px;
+}
+
+div.icons div.pencil {
+    height: 13px;
+    width: 5px;
+    background: #6E6E6E;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    right: 60px;
+    top: 18px;
+}
+
+div.icons div.pencil:after {
+    content: '';
+    height: 3px;
+    width: 5px;
+    background:#6E6E6E;
+    -webkit-border-radius: 1px 1px 0 0;
+    -moz-border-radius: 1px 1px 0 0;
+    border-radius: 1px 1px 0 0;
+    position: absolute;
+    top: -5px;
+    left: 0px;
+}
+
+div.icons div.pencil:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-width: 4px 2px 0 3px;
+    border-style: solid;
+    border-color: #6E6E6E transparent transparent transparent;
+    position: absolute;
+    bottom: -6px;
+}
+.item:hover #itemdate{
+	color: #fff;
+}
+.checked .incheck{
+	background-color: #1FB5AD;
+}
+.checked b{
+	text-decoration:line-through; 
+}
+.checked #itemdate{
+	color: #959595;
+}
+.checked .incheck:before {
+	content: "";
+	width: 15px;
+	height: 4px;
+	background: #fff;
+	position: absolute;
+	left: -3px;
+	top: -7px;
+	margin: 13px 0 0 6px;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.checked .incheck:after {
+	content: '';
+	width: 8px;
+	height: 4px;
+	background-color: #fff;
+	position: absolute;
+	top: 9px;
+	left: 0px;
+	-webkit-transform: rotate(50deg);
+	-moz-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	-o-transform: rotate(50deg);
+	transform: rotate(50deg);
+}
+
+#byh-input-notice{
+	position: absolute;
+	font-size: 16px;
+	left: 260px;
+	top: 142px;
+	color: red;
+}
+/*滚动条*/
+::-webkit-scrollbar-thumb{   
+    background-color:#1FB5AD;      
+    outline-offset:-2px;   
+    outline:2px solid #fff;   
+    -webkit-border-radius:8px;   
+    border: 2px solid #fff;   
+}   
+  
+/*—鼠标点击滚动条显示样式–*/  
+::-webkit-scrollbar-thumb:hover{   
+    background-color:#1A958E;    
+    -webkit-border-radius:8px;   
+}   
+  
+/*—滚动条大小–*/  
+::-webkit-scrollbar{   
+    width:12px;     
+}   
