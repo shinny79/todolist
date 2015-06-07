@@ -171,6 +171,45 @@ byh.dateConvert=function(str){
 }
 
 //发布任务
+
+//发送ajax请求
+byh.sendAsynchronRequest=function(url,parameter,callback){
+	console.log("bbb");
+	var xmlHttp=false;
+	if(window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest();
+	}else if(window.ActiveXObject) {
+		try{
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(e){
+			try {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch(e){}
+		}
+	}
+	if(xmlHttp == null){
+		console.log("不能创建XMLHttpRequest对象");
+		return false;
+	}
+
+	if(parameter == null){
+		xmlHttp.onreadystatechange = callback;
+		xmlHttp.open("GET",url,true);
+		xmlHttp.send(null);
+	}else{
+		xmlHttp.onreadystatechange = callback;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
+		console.log("Ccc");
+		xmlHttp.send(parameter);
+	}
+}
+
+byh.addTargetCallback=function(status,data){
+	location.reload(true);
+
+}
+
 document.getElementById("byh-submittask").addEventListener("click", function(){
 	//检查是否填写时间
 	if(!document.getElementById("byh-datetime").value){
@@ -189,45 +228,17 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 		//组装数据
 		var context=document.getElementById("byh-input-add-task").value;
 		var checkboxs=document.getElementsByClassName("byh-add");
-		var category;
+		var category=0;
 		for (var i = 0; i < checkboxs.length; i++) {
 			if(checkboxs[i].getElementsByTagName("span")[0].className==="checked"){
 				category=i;
-				console.log(category);
 				break;
 			}
 		};
+		var param="context="+context+"&category="+category+"&end_time="+time;
+		alert(param);
+		byh.sendAsynchronRequest("../../backend/restAPI.php",param,byh.addTargetCallback);
 	}
 	
 }, false);
 
-//发送ajax请求
-byh.sendAsynchronRequest=function(url,parameter,callback){
-	var xmlHttp=false;
-	if(window.XMLHttpRequest){
-		xmlHttp = new XMLHttpRequest();
-	}else if(window.ActiveXObject) {
-		try{
-			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-		}catch(e){
-			try {
-				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}catch(e){}
-		}
-	}
-	if(xmlHttp == null){
-		alert("不能创建XMLHttpRequest对象");
-		return false;
-	}
-
-	if(parameter == null){
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("GET",url,true);
-		xmlHttp.send(null);
-	}else{
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("POST",url,true);
-		xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
-		xmlHttp.send(parameter);
-	}
-}
