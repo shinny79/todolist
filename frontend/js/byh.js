@@ -289,6 +289,8 @@ for(var i=0;i<item;i++){
 	}
 	
 	function del(){
-		this.parentNode.parentNode.remove(0);
+		if(this.parentNode.parentNode.getAttribute("class")=="checked item"){
+			this.parentNode.parentNode.remove(0);
+		}
 	}
 }
