@@ -60,7 +60,8 @@ try{
 	// insert some
 	if(file_get_contents("php://input")&&$_SERVER['REQUEST_METHOD'] == 'POST'){
 		$raw = json_decode(file_get_contents("php://input"));
-
+		// var_dump($raw);
+		// var_dump(file_get_contents("php://input"));
 		$sql = 'INSERT INTO Assign (content,isdone,isimportant,end_time)VALUES (?,?,?,?)';
 		$stmt = $conn->prepare($sql);
 

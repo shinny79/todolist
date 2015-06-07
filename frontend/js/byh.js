@@ -171,12 +171,19 @@ byh.dateConvert=function(str){
 }
 
 //发布任务
-
-byh.addTargetCallback=function(status,data){
-	location.reload(true);
+byh.addTargetCallback=function(data){
+	// location.reload(true);
+	console.log(data);
 }
 
-byh.ajaxRequst=function(method,url,data){
+//查询天气
+byh.setWeather=function(data){
+	var weather=JSON.parse(data);
+	console.log(weather);
+	alert(weather.data.temp);
+}
+
+byh.ajaxRequst=function(method,url,data,callback){
 	var xmlhttp;
 	console.log(window.XMLHttpRequest);
 	if (window.XMLHttpRequest)
@@ -191,43 +198,57 @@ byh.ajaxRequst=function(method,url,data){
 	}
 
 	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			console.log(xmlhttp.responseText);
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){	
+			callback(xmlhttp.responseText);
 		}
 	}
 	xmlhttp.open(method,url,false);
 	xmlhttp.send(data);
 }
 
+//发布事件
 document.getElementById("byh-submittask").addEventListener("click", function(){
 	//检查是否填写时间
-	if(!document.getElementById("byh-datetime").value){
-		document.getElementById("byh-input-notice").innerHTML="请填写时间哦";
-	}
-	else{
-		var date=new Date();
-		var tempTime=document.getElementById("byh-datetime").value.split("-");
-		date.setYear(tempTime[0]);
+	// if(!document.getElementById("byh-datetime").value){
+	// 	document.getElementById("byh-input-notice").innerHTML="请填写时间哦";
+	// }
+	// else{
+	// 	var date=new Date();
+	// 	var tempTime=document.getElementById("byh-datetime").value.split("-");
+	// 	date.setYear(tempTime[0]);
 		
-		var tempTime2=tempTime[2].split("T");
-		date.setMonth(tempTime[1],tempTime2[0]);
-		var tempTime3=tempTime2[1].split(":");
-		date.setHours(tempTime3[0],tempTime3[1]);
-		var mtime=date.getTime();
-		//组装数据
-		var mcontext=document.getElementById("byh-input-add-task").value;
-		var checkboxs=document.getElementsByClassName("byh-add");
-		var mcategory=0;
-		for (var i = 0; i < checkboxs.length; i++) {
-			if(checkboxs[i].getElementsByTagName("span")[0].className==="checked"){
-				mcategory=i;
-				break;
-			}
-		};
-		var data = '{"assign": [{"context": "'+mcontext+'","category": '+mcategory+',"end_time" : '+mtime+',}]}';
-		console.log(data);
-		byh.ajaxRequst('POST',"../backend/restAPI.php",data);
+	// 	var tempTime2=tempTime[2].split("T");
+	// 	date.setMonth(tempTime[1],tempTime2[0]);
+	// 	var tempTime3=tempTime2[1].split(":");
+	// 	date.setHours(tempTime3[0],tempTime3[1]);
+	// 	var mtime=date.getTime();
+	// 	//组装数据
+	// 	var mcontext=document.getElementById("byh-input-add-task").value;
+	// 	var checkboxs=document.getElementsByClassName("byh-add");
+	// 	var mcategory="";
+	// 	for (var i = 0; i < checkboxs.length; i++) {
+	// 		if(checkboxs[i].getElementsByTagName("span")[0].className==="checked"){
+	// 			// switch(i){
+	// 			// 	case 0:
+	// 			// 		mcategory="person";
+	// 			// 		break;
+	// 			// 	case 1:
+	// 			// 		mcategory="work";
+	// 			// 		break;
+	// 			// 	case 2:
+	// 			// 		mcategory="others";
+	// 			// 		break;
+	// 			// 	case 3:
+	// 			// 		mcategory="shopping";
+	// 			// 		break;
+	// 			// }
+	// 			mcategory=i;
+	// 			break;
+	// 		}
+	// 	};
+	// 	var data = '{"assign": [{"context": "'+mcontext+'","category": '+mcategory+',"end_time" : '+mtime+'}]}';
+		var data='{"assign": [{"context": "加一个","category": 1,"end_time" : 12345678912}]}';
+		byh.ajaxRequst('POST',"../backend/restAPI.php",data,byh.addTargetCallback);
 		// ajax.request({
 		// 	url:'../backend/restAPI.php',
 		// 	data:{
@@ -241,11 +262,10 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 		// 	}
 		// });
 		// byh.sendAsynchronRequest("../backend/restAPI.php",param,byh.addTargetCallback);
-	}
+	//}
 	
 }, false);
 
-//查询天气
 byh.getWeather=function(){
-	ajaxRequst("GET","restAPI.php?weather=1",null);
+	byh.ajaxRequst("GET","../backend/restAPI.php?weather=1",null,byh.setWeather);
 }
