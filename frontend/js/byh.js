@@ -224,20 +224,30 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 		date.setMonth(tempTime[1],tempTime2[0]);
 		var tempTime3=tempTime2[1].split(":");
 		date.setHours(tempTime3[0],tempTime3[1]);
-		var time=date.getTime();
+		var mtime=date.getTime();
 		//组装数据
-		var context=document.getElementById("byh-input-add-task").value;
+		var mcontext=document.getElementById("byh-input-add-task").value;
 		var checkboxs=document.getElementsByClassName("byh-add");
-		var category=0;
+		var mcategory=0;
 		for (var i = 0; i < checkboxs.length; i++) {
 			if(checkboxs[i].getElementsByTagName("span")[0].className==="checked"){
-				category=i;
+				mcategory=i;
 				break;
 			}
 		};
-		var param="context="+context+"&category="+category+"&end_time="+time;
-		alert(param);
-		byh.sendAsynchronRequest("../../backend/restAPI.php",param,byh.addTargetCallback);
+		ajax.request({
+			url:'../backend/restAPI.php',
+			data:{
+				context:mcontext,
+				category:mcategory,
+				end_time:mtime
+			},
+			//type:'get',
+			callback:function(r){
+				console.log(r);
+			}
+		});
+		// byh.sendAsynchronRequest("../../backend/restAPI.php",param,byh.addTargetCallback);
 	}
 	
 }, false);
