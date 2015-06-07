@@ -111,7 +111,6 @@ var zxj = {
             var oLi = doc.getElementById("zxj-list").getElementsByTagName('li');
             var i,
                 len=oLi.length;
-            var oPan = doc.getElementById('panel').children;
             var z0 = doc.getElementById('zxj-pan-0');
             var z1 = doc.getElementById('zxj-pan-1');
             var z2 = doc.getElementById('zxj-pan-2');
@@ -133,7 +132,7 @@ var zxj = {
                                     var zxjdata0 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata0.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z0.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -211,11 +210,10 @@ var zxj = {
                             break;
                     }
                     for(var j=0;j<len;j++){
+                        console.log(oLi);
                         oLi[j].className = " ";
-                        oPan[j].style.display = 'none';
                     }
                     this.className = "active";
-                    oPan[this.index].style.display = 'block';
                 };
             }
         },
@@ -236,7 +234,7 @@ window.onload = function(){
                                     console.log(zxjdata0);
                                     for(var i=0,len=zxjdata0.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z0.innerHTML = htmlstr;
                                     htmlstr = "";
