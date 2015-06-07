@@ -1,6 +1,26 @@
 <?php
 // header('content')
+$weatherURL = 'http://www.weather.com.cn/adat/cityinfo/101010100.html';//get weather
+$temperURL = 'http://www.weather.com.cn/adat/sk/101010100.html';//get temp
 
+function curlGet($url){
+	$ch = curl_init();
+	
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+
+    $ret = curl_exec($ch);
+	$err = curl_error($ch);
+
+	curl_close($ch);
+
+	$r = json_decode($ret);
+	return $r;
+}
 try{
 	$config = parse_ini_file('config.ini');
 	$conn = new mysqli($config['host'],$config['username'],$config['password'],$config['name']);
@@ -122,6 +142,19 @@ try{
 		echo json_encode($data);
 	}
 
+	//get weather
+	if(isset($_GET['weather'])&&$_GET['weather']){
+		$weather = curlGet($weatherURL);
+		$temper = curlGet($temperURL);
+		$weatherArr = $weather->weatherinfo;
+		$temperArr = $temper->weatherinfo;
+		$weaResult = array(
+			'data'=>array(
+				'city' => $weatherArr->city,
+				'weather'=> $weatherArr->weather,
+				'temp' => $temperArr->temp));
+		echo json_encode($weaResult);
+	}
 }catch(Exception $e){
 	echo $e->getMessage();
 }
