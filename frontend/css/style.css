@@ -564,10 +564,9 @@ body {
 	margin: 0 auto;
 	background-color:#FFFFFF;
 	box-shadow:-0.3px -0.3px 5px #8A8A8A;
-}
-.rela{
 	position:relative;
 }
+
 .note{
 	color:#717171;
 	margin-left: 50px;
