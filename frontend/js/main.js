@@ -150,7 +150,7 @@ var zxj = {
                                     var zxjdata1 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata1.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata1.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata1.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z1.innerHTML = htmlstr;
                                     htmlstr ="";
@@ -167,7 +167,7 @@ var zxj = {
                                     var zxjdata2 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata2.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata2.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata2.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z2.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -180,11 +180,11 @@ var zxj = {
                                 url:'../backend/restAPI.php?category=shopping',
                                 type:'get',
                                 callback:function(r){
-                                    console.log(r);
-                                    var zxjdata3 = JSON.parse(r); 
+                                    var zxjdata3 = JSON.parse(r);
+                                    console.log(zxjdata3); 
                                     for(var i=0,len=zxjdata3.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata3.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata3.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z3.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -201,7 +201,7 @@ var zxj = {
                                     var zxjdata4 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata4.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata4.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata4.data[i]['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z4.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -225,6 +225,24 @@ var zxj = {
 
 window.onload = function(){
     zxj.apps.tabSwitch();
+    var doc = document;
+    var z0 = doc.getElementById('zxj-pan-0');
+    var htmlstr="";
+    ajax.request({
+                                url:'../backend/restAPI.php?category=person',
+                                type:'get',
+                                callback:function(r){
+                                    var zxjdata0 = JSON.parse(r); 
+                                    console.log(zxjdata0);
+                                    for(var i=0,len=zxjdata0.data.length; i<len; i++){
+
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                    }
+                                    z0.innerHTML = htmlstr;
+                                    htmlstr = "";
+                                    // DO DOM
+                                }
+                            });
 }
 
 
