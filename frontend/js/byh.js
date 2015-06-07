@@ -273,11 +273,12 @@ byh.getWeather=function(){
 
 
 
-//zy 添加item勾选事件
+//zy 添加item勾选事件和item删除事件
 var item=document.getElementsByClassName("incheck").length;
 
 for(var i=0;i<item;i++){
 	document.getElementsByClassName("incheck").item(i).addEventListener("click",showcheck);
+	document.getElementsByClassName("dustbin").item(i).addEventListener("click",del);
 	
 	function showcheck(){
 		if(this.parentNode.className=="item"){
@@ -285,5 +286,9 @@ for(var i=0;i<item;i++){
 		}else{
 			this.parentNode.setAttribute("class", "item"); 
 		}
+	}
+	
+	function del(){
+		this.parentNode.parentNode.remove(0);
 	}
 }
