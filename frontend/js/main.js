@@ -126,17 +126,16 @@ var zxj = {
                         case 0:
                         default:
                             ajax.request({
-                                url:'../backend/restAPI.php?category=0',
+                                url:'../backend/restAPI.php?category=person',
                                 type:'get',
                                 callback:function(r){
                                     console.log(r);
                                     var zxjdata0 = JSON.parse(r); 
-                                    for(var i=0,len=r.data.length; i<len; i++){
+                                    for(var i=0,len=zxjdata0.data.length; i<len; i++){
 
                                       htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata0.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z0.innerHTML = htmlstr;
-                                    console.log(html);
                                     htmlstr = "";
                                     // DO DOM
                                 }
@@ -144,14 +143,14 @@ var zxj = {
                             break;
                         case 1:
                             ajax.request({
-                                url:'../backend/restAPI.php?category=1',
+                                url:'../backend/restAPI.php?category=work',
                                 type:'get',
                                 callback:function(r){
                                     console.log(r);
-                                    var zxjdata2 = JSON.parse(r); 
-                                    for(var i=0,len=r.data.length; i<len; i++){
+                                    var zxjdata1 = JSON.parse(r); 
+                                    for(var i=0,len=zxjdata1.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata4.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata1.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z1.innerHTML = htmlstr;
                                     htmlstr ="";
@@ -161,14 +160,14 @@ var zxj = {
                             break;
                         case 2:
                             ajax.request({
-                                url:'../backend/restAPI.php?category=2',
+                                url:'../backend/restAPI.php?category=otherthing',
                                 type:'get',
                                 callback:function(r){
                                     console.log(r);
-                                    var zxjdata1 = JSON.parse(r); 
-                                    for(var i=0,len=r.data.length; i<len; i++){
+                                    var zxjdata2 = JSON.parse(r); 
+                                    for(var i=0,len=zxjdata2.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata1.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata2.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z2.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -178,14 +177,14 @@ var zxj = {
                             break;
                         case 3:
                             ajax.request({
-                                url:'../backend/restAPI.php?category=3',
+                                url:'../backend/restAPI.php?category=shopping',
                                 type:'get',
                                 callback:function(r){
                                     console.log(r);
-                                    var zxjdata1 = JSON.parse(r); 
-                                    for(var i=0,len=r.data.length; i<len; i++){
+                                    var zxjdata3 = JSON.parse(r); 
+                                    for(var i=0,len=zxjdata3.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata1.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata3.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z3.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -195,12 +194,12 @@ var zxj = {
                             break;
                         case 4:
                             ajax.request({
-                                url:'../backend/restAPI.php?category=4',
+                                url:'../backend/restAPI.php?category=all',
                                 type:'get',
                                 callback:function(r){
                                     console.log(r);
                                     var zxjdata4 = JSON.parse(r); 
-                                    for(var i=0,len=r.data.length; i<len; i++){
+                                    for(var i=0,len=zxjdata4.data.length; i<len; i++){
 
                                       htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata4.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
