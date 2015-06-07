@@ -172,42 +172,8 @@ byh.dateConvert=function(str){
 
 //发布任务
 
-//发送ajax请求
-byh.sendAsynchronRequest=function(url,parameter,callback){
-	console.log("bbb");
-	var xmlHttp=false;
-	if(window.XMLHttpRequest){
-		xmlHttp = new XMLHttpRequest();
-	}else if(window.ActiveXObject) {
-		try{
-			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-		}catch(e){
-			try {
-				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}catch(e){}
-		}
-	}
-	if(xmlHttp == null){
-		console.log("不能创建XMLHttpRequest对象");
-		return false;
-	}
-
-	if(parameter == null){
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("GET",url,true);
-		xmlHttp.send(null);
-	}else{
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("POST",url,true);
-		xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
-		console.log("Ccc");
-		xmlHttp.send(parameter);
-	}
-}
-
 byh.addTargetCallback=function(status,data){
 	location.reload(true);
-
 }
 
 byh.ajaxRequst=function(method,url,data){
@@ -259,7 +225,8 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 				break;
 			}
 		};
-		var data = '{"assign": [{"context": "'+mcontext+'","category": '+mcategory+',"end_time" : '+mtime+'}]}';
+		var data = '{"assign": [{"context": "'+mcontext+'","category": '+mcategory+',"end_time" : '+mtime+',}]}';
+		console.log(data);
 		byh.ajaxRequst('POST',"../backend/restAPI.php",data);
 		// ajax.request({
 		// 	url:'../backend/restAPI.php',
@@ -278,3 +245,7 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 	
 }, false);
 
+//查询天气
+byh.getWeather=function(){
+	ajaxRequst("GET","restAPI.php?weather=1",null);
+}
