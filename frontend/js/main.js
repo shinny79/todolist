@@ -184,7 +184,7 @@ var zxj = {
                                     var zxjdata3 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata3.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata3.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata3.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z3.innerHTML = htmlstr;
                                     htmlstr = "";
@@ -201,7 +201,7 @@ var zxj = {
                                     var zxjdata4 = JSON.parse(r); 
                                     for(var i=0,len=zxjdata4.data.length; i<len; i++){
 
-                                      htmlstr += "<div class='item'><div class='note checked'><b>"+zxjdata4.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck  checked'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
+                                      htmlstr += "<div class='item'><div class='note'><b>"+zxjdata4.data['content']+"</b><span id='itemdate'>6月5日 19:00</span></div><div class='checks'></div><div class='incheck'></div><div class='icons'><div class='star'></div><div class='dustbin'></div><div class='pencil'></div></div></div>";
                                     }
                                     z4.innerHTML = htmlstr;
                                     htmlstr = "";
