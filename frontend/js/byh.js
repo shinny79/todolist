@@ -210,6 +210,30 @@ byh.addTargetCallback=function(status,data){
 
 }
 
+byh.ajaxRequst=function(method,url,data){
+	var xmlhttp;
+	console.log(window.XMLHttpRequest);
+	if (window.XMLHttpRequest)
+	{
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else
+	{
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange=function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			console.log(xmlhttp.responseText);
+		}
+	}
+	xmlhttp.open(method,url,false);
+	xmlhttp.send(data);
+}
+
 document.getElementById("byh-submittask").addEventListener("click", function(){
 	//检查是否填写时间
 	if(!document.getElementById("byh-datetime").value){
@@ -235,19 +259,21 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 				break;
 			}
 		};
-		ajax.request({
-			url:'../backend/restAPI.php',
-			data:{
-				context:mcontext,
-				category:mcategory,
-				end_time:mtime
-			},
-			//type:'get',
-			callback:function(r){
-				console.log(r);
-			}
-		});
-		// byh.sendAsynchronRequest("../../backend/restAPI.php",param,byh.addTargetCallback);
+		var data = '{"assign": [{"context": "'+mcontext+'","category": '+mcategory+',"end_time" : '+mtime+'}]}';
+		byh.ajaxRequst('POST',"../backend/restAPI.php",data);
+		// ajax.request({
+		// 	url:'../backend/restAPI.php',
+		// 	data:{
+		// 		context:mcontext,
+		// 		category:mcategory,
+		// 		end_time:mtime
+		// 	},
+		// 	//type:'get',
+		// 	callback:function(r){
+		// 		console.log(r);
+		// 	}
+		// });
+		// byh.sendAsynchronRequest("../backend/restAPI.php",param,byh.addTargetCallback);
 	}
 	
 }, false);
