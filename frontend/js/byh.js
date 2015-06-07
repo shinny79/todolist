@@ -13,6 +13,7 @@ byh.addButton.addEventListener("click", function(){
 	//显示mask
 	var mask=document.getElementsByClassName("mask")[0];
 	mask.style.visibility="visible";
+	
 }, false);
 
 
@@ -268,4 +269,21 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 
 byh.getWeather=function(){
 	byh.ajaxRequst("GET","../backend/restAPI.php?weather=1",null,byh.setWeather);
+}
+
+
+
+//zy 添加item勾选事件
+var item=document.getElementsByClassName("incheck").length;
+
+for(var i=0;i<item;i++){
+	document.getElementsByClassName("incheck").item(i).addEventListener("click",showcheck);
+	
+	function showcheck(){
+		if(this.parentNode.className=="item"){
+			this.parentNode.setAttribute("class", "checked item"); 
+		}else{
+			this.parentNode.setAttribute("class", "item"); 
+		}
+	}
 }
