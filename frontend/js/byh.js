@@ -171,67 +171,6 @@ byh.dateConvert=function(str){
 }
 
 //发布任务
-<<<<<<< HEAD
-document.getElementById("byh-submittask").addEventListener("click", function(){
-	//检查是否填写时间
-	if(!document.getElementById("byh-datetime").value){
-		document.getElementById("byh-input-notice").innerHTML="请填写时间哦";
-	}
-	else{
-		var date=new Date();
-		var tempTime=document.getElementById("byh-datetime").value.split("-");
-		date.setYear(tempTime[0]);
-		
-		var tempTime2=tempTime[2].split("T");
-		date.setMonth(tempTime[1],tempTime2[0]);
-		var tempTime3=tempTime2[1].split(":");
-		date.setHours(tempTime3[0],tempTime3[1]);
-		var time=date.getTime();
-		//组装数据
-		var context=document.getElementById("byh-input-add-task").value;
-		var checkboxs=document.getElementsByClassName("byh-add");
-		var category;
-		for (var i = 0; i < checkboxs.length; i++) {
-			if(checkboxs[i].getElementsByTagName("span")[0].className==="checked"){
-				category=i;
-				console.log(category);
-				break;
-			}
-		};
-	}
-	
-}, false);
-
-//发送ajax请求
-byh.sendAsynchronRequest=function(url,parameter,callback){
-	var xmlHttp=false;
-	if(window.XMLHttpRequest){
-		xmlHttp = new XMLHttpRequest();
-	}else if(window.ActiveXObject) {
-		try{
-			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
-		}catch(e){
-			try {
-				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}catch(e){}
-		}
-	}
-	if(xmlHttp == null){
-		alert("不能创建XMLHttpRequest对象");
-		return false;
-	}
-
-	if(parameter == null){
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("GET",url,true);
-		xmlHttp.send(null);
-	}else{
-		xmlHttp.onreadystatechange = callback;
-		xmlHttp.open("POST",url,true);
-		xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");
-		xmlHttp.send(parameter);
-	}
-=======
 byh.addTargetCallback=function(data){
 	// location.reload(true);
 	console.log(data);
@@ -329,5 +268,4 @@ document.getElementById("byh-submittask").addEventListener("click", function(){
 
 byh.getWeather=function(){
 	byh.ajaxRequst("GET","../backend/restAPI.php?weather=1",null,byh.setWeather);
->>>>>>> origin/master
 }
