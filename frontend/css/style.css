@@ -5,7 +5,10 @@ body {
 	background-color: #1fb5ac;
 	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+<<<<<<< HEAD
 /*主体面板的样式*/
+=======
+>>>>>>> origin/master
 .main {
 	min-width: 1024px;
 	width: 80%;
@@ -19,14 +22,20 @@ body {
 	margin-left: -40%;
 	box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.56);
 }
+<<<<<<< HEAD
 /*主体面板侧面的样式*/
+=======
+>>>>>>> origin/master
 .left {
 	width: 25%;
 	height: 650px;
 	background-color: #1fb5ac;
 	float: left;
 }
+<<<<<<< HEAD
 /*侧边栏上方user样式*/
+=======
+>>>>>>> origin/master
 .user {
 	color: #fff;
 	height: 250px;
@@ -49,7 +58,10 @@ body {
 	border: 5px solid #fff;
 	margin: 10px 0;
 }
+<<<<<<< HEAD
 /*侧边面板下方的nav样式*/
+=======
+>>>>>>> origin/master
 .nav {
 	height: 330px;
 	width: 80%;
@@ -62,7 +74,11 @@ body {
 	width: 120px;
 	padding: 0 20px;
 	height: 40px;
+<<<<<<< HEAD
 	margin: 5px auto;
+=======
+	margin: 0px auto;
+>>>>>>> origin/master
 	line-height: 55px;
 	border-radius: 5px;
 }
@@ -73,18 +89,29 @@ body {
 	line-height: 40px;
 	background-color: #1fb5ac;
 }
+<<<<<<< HEAD
 .nav li:hover a {
 	color: #fff;
 }
 /*侧边栏选中后的右侧栏状态*/
 .nav .navactive{
+=======
+.navactive{
+>>>>>>> origin/master
 	line-height: 40px;
 	background-color: #1fb5ac;
+
 }
+<<<<<<< HEAD
 .nav .navactive a{
 	color: #fff;
 }
 /*选中框的样式设置*/
+=======
+.nav li:hover a {
+	color: #fff;
+}
+>>>>>>> origin/master
 .nav li span {
 	width: 20px;
 	height: 20px;
@@ -92,7 +119,10 @@ body {
 	display: inline-block;
 	margin: 0 20px 0 0;
 }
+<<<<<<< HEAD
 /*选中框的颜色*/
+=======
+>>>>>>> origin/master
 .color1 {
 	background-color: #d74f41;
 }
@@ -108,13 +138,19 @@ body {
 .color5 {
 	background-color: #f29c9f;
 }
+<<<<<<< HEAD
 /*右边面板的开始*/
+=======
+>>>>>>> origin/master
 .right {
 	width: 75%;
 	height: 650px;
 	float: left;
 }
+<<<<<<< HEAD
 /*右边面板的头部*/
+=======
+>>>>>>> origin/master
 .topnav {
 	width: 100%;
 	height: 50px;
@@ -157,7 +193,10 @@ body {
 	transform: rotate(-45deg);
 	right: 11px;
 }
+<<<<<<< HEAD
 /*搜索框*/
+=======
+>>>>>>> origin/master
 .searchbox {
 	float: left;
 	width: 300px;
@@ -229,7 +268,10 @@ body {
 #icon2 {
 	margin: 10px 20px 10px 10px;
 }
+<<<<<<< HEAD
 /*显示没有做的数目*/
+=======
+>>>>>>> origin/master
 #bub {
 	position: absolute;
 	left: 12px;
@@ -245,7 +287,10 @@ body {
 	font-size: 12px;
 	visibility: hidden;
 }
+<<<<<<< HEAD
 /*小用户标识*/
+=======
+>>>>>>> origin/master
 .topnavright {
 	float: right;
 	width: 260px;
@@ -275,7 +320,10 @@ body {
 	left:60px;
 	color: #959595;
 }
+<<<<<<< HEAD
 /*三角*/
+=======
+>>>>>>> origin/master
 .cert {
 	width: 0;
 	height: 0;
@@ -287,20 +335,29 @@ body {
 	right: -110px;
 	top: 20px;
 }
+<<<<<<< HEAD
 /*右侧中间部分*/
+=======
+>>>>>>> origin/master
 .middle {
 	width: 750px;
 	height: 70px;
 	margin: 25px auto 25px auto;
 }
+<<<<<<< HEAD
 /*添加事件样式*/
+=======
+>>>>>>> origin/master
 .add {
 	width: 300px;
 	height: 40px;
 	float: left;
 	margin-top: 35px;
 }
+<<<<<<< HEAD
 /*添加事件按钮*/
+=======
+>>>>>>> origin/master
 .middle form a {
 	width: 36px;
 	height: 36px;
@@ -313,7 +370,10 @@ body {
 	font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 	width: 200px;
 }
+<<<<<<< HEAD
 /*添加事件按钮的图标*/
+=======
+>>>>>>> origin/master
 #icon3 {
 	margin: 3px;
 }
@@ -341,7 +401,80 @@ body {
 	border: 2px solid #959595;
 	text-indent: 20px;
 }
+<<<<<<< HEAD
 /*点击add后显示的*/
+=======
+.weather {
+	width: 150px;
+	height: 70px;
+	background-color: #fff;
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+	background: url(../img/bluesky.png) no-repeat center;
+}
+.city {
+	font-size: 10px;
+	text-indent: 5px;
+	padding: 5px;
+	color: #fff;
+}
+.temperature img {
+	margin: 10px 10px 0 10px;
+}
+.number {
+	color: #fff;
+	font-size: 40px;
+	position: relative;
+	top: -10px;
+	left: 10px;
+	font-weight: normal;
+}
+.Temcir {
+	height: 6px;
+	width: 6px;
+	display: inline-block;
+	position: relative;
+	top: -40px;
+	left: 10px;
+	border-radius: 5px;
+	border: 2px solid #fff;
+}
+.date {
+	float: right;
+	display: inline-block;
+	background-color: #fff;
+	width: 220px;
+	height: 70px;
+}
+.bigdate {
+	height: 100%;
+	width: 80px;
+	display: inline-block;
+	background-color: #1fb5ac;
+	color: #fff;
+	text-align: center;
+}
+.bigdate p {
+	padding-top: 10px;
+}
+.bigdate b {
+	font-size: 30px;
+}
+.smalldate {
+	height: 100%;
+	width: 130px;
+	display: inline-block;
+	color: #1fb5ac;
+	text-align: center;
+}
+.smalldate p:first-child {
+	padding-left: 70px;
+}
+.smalldate p:last-child {
+	font-size: 40px;
+}
+>>>>>>> origin/master
 .mask {
 	position: fixed;
 	top: 0;
@@ -428,7 +561,10 @@ body {
 	background-color: #1A958E;
 	font-size: 20px;
 }
+<<<<<<< HEAD
 /*点击按钮的样式*/
+=======
+>>>>>>> origin/master
 .dialog1 .checked {
 	background-color: #d74f41;
 }
@@ -441,7 +577,10 @@ body {
 .dialog4 .checked {
 	background-color: #aa8abc;
 }
+<<<<<<< HEAD
 /*点击的勾*/
+=======
+>>>>>>> origin/master
 .dialog .checked:before {
 	content: "";
 	width: 15px;
@@ -471,7 +610,10 @@ body {
 	-o-transform: rotate(50deg);
 	transform: rotate(50deg);
 }
+<<<<<<< HEAD
 /*关闭按钮*/
+=======
+>>>>>>> origin/master
 .closedialog {
 	display: block;
 	width: 30px;
@@ -514,6 +656,7 @@ body {
 .closedialog:hover:after {
 	background-color: #1fb5ac;
 }
+<<<<<<< HEAD
 /*显示天气样式*/
 .weather {
 	width: 150px;
@@ -589,6 +732,9 @@ body {
 	font-size: 40px;
 }
 /*右侧主面板的样式*/
+=======
+/*哈哈哈哈*/
+>>>>>>> origin/master
 #panel{
 	width:750px;
 	height:450px;
@@ -596,7 +742,10 @@ body {
 	background-color:#FFFFFF;
 	box-shadow:-0.3px -0.3px 5px #8A8A8A;
 }
+<<<<<<< HEAD
 /*为了规定其样式*/
+=======
+>>>>>>> origin/master
 .rela{
 	position:relative;
 }
@@ -691,8 +840,13 @@ body {
 	position:absolute;
 	width:24px;
 	height:24px;
+<<<<<<< HEAD
 	top:20px;
 	left:20px;
+=======
+	top:13px;
+	left:13px;
+>>>>>>> origin/master
 	background-color:#1FB5AD;
 	border-radius:3px;
 }
@@ -701,8 +855,13 @@ body {
 	position:absolute;
 	width:16px;
 	height:16px;
+<<<<<<< HEAD
 	top:24px;
 	left:24px;
+=======
+	top:17px;
+	left:17px;
+>>>>>>> origin/master
 	background-color:#F1F1F1;
 	border-radius:2px;
 }
@@ -723,6 +882,10 @@ body {
     -ms-transform: rotate(35deg);
     -o-transform: rotate(35deg);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 div.icons div.star:before {
     border-bottom: 8px solid #6E6E6E;
     border-left: 3px solid transparent;
@@ -824,6 +987,7 @@ div.icons div.pencil:before {
     position: absolute;
     bottom: -6px;
 }
+<<<<<<< HEAD
 .item:hover #itemdate{
 	color: #fff;
 }
@@ -837,6 +1001,21 @@ div.icons div.pencil:before {
 	color: #959595;
 }
 .checked .incheck:before {
+=======
+.incheck.checked {
+	background-color: #1FB5AD;
+}
+.item .checked b{
+	text-decoration:line-through; 
+}
+.item:hover #itemdate{
+	color: #fff;
+}
+.checked #itemdate{
+	color: #959595;
+}
+.incheck.checked:before {
+>>>>>>> origin/master
 	content: "";
 	width: 15px;
 	height: 4px;
@@ -851,7 +1030,11 @@ div.icons div.pencil:before {
 	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
+<<<<<<< HEAD
 .checked .incheck:after {
+=======
+.incheck.checked:after {
+>>>>>>> origin/master
 	content: '';
 	width: 8px;
 	height: 4px;
@@ -872,6 +1055,7 @@ div.icons div.pencil:before {
 	left: 260px;
 	top: 142px;
 	color: red;
+<<<<<<< HEAD
 }
 /*滚动条*/
 ::-webkit-scrollbar-thumb{   
@@ -892,3 +1076,6 @@ div.icons div.pencil:before {
 ::-webkit-scrollbar{   
     width:12px;     
 }   
+=======
+}
+>>>>>>> origin/master
